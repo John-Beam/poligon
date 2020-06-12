@@ -4,8 +4,9 @@
 Vagrant.configure("2") do |config|
 	config.vm.define "juice" do |juice|
 		
-  		juice.vm.box = "ubuntu/xenial64"
+  		juice.vm.box = "ubuntu/focal64"
 
+		#juice.ssh.insert_key = false
   		juice.vm.hostname = "juice"
 
   		juice.vm.network "private_network", ip: "192.168.33.10"
@@ -25,6 +26,7 @@ Vagrant.configure("2") do |config|
 
 	config.vm.define "kali" do |kali|
   		kali.vm.box = "kalilinux/rolling"
+  		#kali.ssh.insert_key = false
   		kali.vm.hostname = "kali"
   # Create a forwarded port
 		kali.vm.network "forwarded_port", guest: 80, host: 8080
